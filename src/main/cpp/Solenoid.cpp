@@ -12,8 +12,6 @@ void Solenoid::Release(bool on)  {
         exampleDouble.Set(frc::DoubleSolenoid::Value::kOff);
     }
 
-
-
 };
 
 void Solenoid::originPos(){
