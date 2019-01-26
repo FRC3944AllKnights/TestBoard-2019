@@ -1,7 +1,7 @@
 #ifndef SOLENOID_H
 #define SOLENOID_H
 
-#include <frc/Servo.h>
+#include <frc/DoubleSolenoid.h>
 
 class Solenoid{
     
@@ -13,6 +13,7 @@ class Solenoid{
         void originPos();
 
     private:
+    frc::DoubleSolenoid exampleDouble {0, 1};
 
 };
 

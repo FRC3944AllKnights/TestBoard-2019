@@ -18,6 +18,7 @@ class Robot : public frc::TimedRobot {
   void RobotInit() override {
     // Invert the left side motors. You may need to change or remove this to
     // match your robot.
+    solenoid.originPos();
   }
 
   void TeleopPeriodic() override {
@@ -25,10 +26,10 @@ class Robot : public frc::TimedRobot {
      * movement, and Z axis for rotation.
      */
     if (m_stick.GetRawButton(6)){
-      
+        solenoid.Release(false);
     }
     else{
-      
+        solenoid.Release(true);
     }
 
   }
@@ -36,8 +37,10 @@ class Robot : public frc::TimedRobot {
  private:
  //this is where to change variables
   static constexpr int kJoystickChannel = 0;
-  Solenoid servo; //names the class notServo - servo, also creates an instance of servo
+  Solenoid solenoid; //names the class notServo - servo, also creates an instance of servo
   frc::Joystick m_stick{kJoystickChannel};
 };
 
-START_ROBOT_CLASS(Robot)
+#ifndef RUNNING_FRC_TESTS
+int main() { return frc::StartRobot<Robot>();}
+#endif
